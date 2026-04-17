@@ -9,11 +9,11 @@ allprojects {
   apply plugin: 'jacoco'
 
   group = "org.openapi4j"
-  version = "1.0.7.1" + (Boolean.valueOf(System.getProperty("release")) ? "" : "-SNAPSHOT")
+  version = "1.0.7.1"
 
   java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.toVersion("21")
+    targetCompatibility = JavaVersion.toVersion("21")
   }
   compileJava.options.encoding = StandardCharsets.UTF_8.toString()
 

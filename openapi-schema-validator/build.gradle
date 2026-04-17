@@ -6,6 +6,10 @@ plugins {
 
 description = "openapi4j schema data validator"
 
+signing {
+    useGpgCmd()
+}
+
 dependencies {
   api(project(":openapi-core"))
 

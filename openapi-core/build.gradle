@@ -4,6 +4,10 @@ plugins {
   id 'signing'
 }
 
+signing {
+    useGpgCmd()
+}
+
 description = "openapi4j core utils & JSON reference resolver"
 
 dependencies {

@@ -8,6 +8,10 @@ description = "openapi4j test project"
 
 description = "openapi4j operation Servlet adapter"
 
+signing {
+    useGpgCmd()
+}
+
 dependencies {
   api(project(":openapi-operation-validator"))
   // Servlet V4

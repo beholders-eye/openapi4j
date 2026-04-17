@@ -6,6 +6,10 @@ plugins {
 
 description = "openapi4j operation Vert.x adapter"
 
+signing {
+    useGpgCmd()
+}
+
 dependencies {
   api(project(":openapi-operation-validator"))
   // Vert.x

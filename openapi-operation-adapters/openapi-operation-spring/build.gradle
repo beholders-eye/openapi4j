@@ -6,6 +6,10 @@ plugins {
 
 description = "openapi4j operation Spring adapter"
 
+signing {
+    useGpgCmd()
+}
+
 ext {
   springVersion = '5.0.20.RELEASE'
   servletVersion = '3.1.0'

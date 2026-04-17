@@ -6,6 +6,10 @@ plugins {
 
 description = "openapi4j operation validator"
 
+signing {
+    useGpgCmd()
+}
+
 dependencies {
   api(project(":openapi-parser"))
   api(project(":openapi-schema-validator"))

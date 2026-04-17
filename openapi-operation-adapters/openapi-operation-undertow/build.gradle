@@ -6,6 +6,10 @@ plugins {
 
 description = "openapi4j operation Undertow adapter"
 
+signing {
+    useGpgCmd()
+}
+
 dependencies {
   api(project(":openapi-operation-validator"))
   // Undertow
