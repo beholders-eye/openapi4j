@@ -24,7 +24,7 @@ publishing {
       pom {
         name = project.name
         description = project.description
-        url = "https://github.com/openapi4j/openapi4j"
+        url = "https://github.com/beholders-eye/openapi4j"
         licenses {
           license {
             name = "Apache License, Version 2.0"
@@ -36,11 +36,15 @@ publishing {
             id = 'llfbandit'
             name = 'Rémy NOËL'
           }
+          developer {
+            id = 'beholders-eye'
+            name = "Ridai Govinda Pombo"
+          }
         }
         scm {
-          connection = "scm:git:git://github.com:openapi4j/openapi4j.git"
-          developerConnection = "scm:git:ssh://@github.com:openapi4j/openapi4j.git"
-          url = "https://github.com/openapi4j/openapi4j"
+          connection = "scm:git:git://github.com:beholders-eye/openapi4j.git"
+          developerConnection = "scm:git:ssh://@github.com:beholders-eye/openapi4j.git"
+          url = "https://github.com/beholders-eye/openapi4j"
         }
       }
     }
@@ -53,15 +57,13 @@ publishing {
         url version.endsWith("SNAPSHOT") ? snapshotsUrl : releasesUrl
     }*/
     maven {
-      name "ossrh"
+      name "GitHubPackages"
       credentials {
-        username findProperty("publishUsername") != null ? findProperty("publishUsername") : System.getenv("publishUsername")
-        password findProperty("publishPassword") != null ? findProperty("publishPassword") : System.getenv("publishPassword")
+        username findProperty("grp.user") != null ? findProperty("grp.user") : System.getenv("GITHUB_ACTOR")
+        password findProperty("grp.token") != null ? findProperty("grp.token") : System.getenv("GITHUB_TOKEN")
       }
 
-      def snapshotsUrl = "https://oss.sonatype.org/content/repositories/snapshots"
-      def releasesUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-      url version.endsWith("SNAPSHOT") ? snapshotsUrl : releasesUrl
+      url https://maven.pkg.github.com/beholders-eye/openapi4j
     }
   }
 }
