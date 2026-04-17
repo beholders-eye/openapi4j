@@ -1,13 +1,13 @@
 package org.openapi4j.operation.validator.adapters.server.restassured;
 
-import io.restassured.http.Header;
 import io.restassured.response.Response;
-import org.openapi4j.operation.validator.model.impl.Body;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import org.openapi4j.operation.validator.model.impl.Body;
+import io.restassured.http.Header;
+
 
 import static java.util.stream.Collectors.toList;
 
@@ -43,7 +43,7 @@ public class RestAssuredResponse implements org.openapi4j.operation.validator.mo
   @Override
   public Collection<String> getHeaderValues(String s) {
     return response.headers().asList().stream()
-      .filter(h -> s.equals(h.getName()))
+      .filter(h -> s.equalsIgnoreCase(h.getName()))
       .map(Header::getValue)
       .collect(toList());
   }
